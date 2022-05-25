@@ -65,7 +65,7 @@ def boxplot_pam(path_name, save_name):
     df = pd.read_csv(path_name)
     df.tank = df.tank.apply(str)
     g = ggplot(df, aes(x="tank", y="Fv/Fm", color='tank')) + geom_boxplot() + \
-        ggtitle("Fv/Fm by temperature\nDay time") + xlab("Temperature") + ylab("Fv/Fm") + theme_bw()
+        ggtitle("Fv/Fm by temperature\nDay time") + xlab("Temperature (Celsius)") + ylab("Fv/Fm") + theme_bw()
     g.save(save_name)
 
 
@@ -75,25 +75,36 @@ if __name__ == '__main__':
     # boxplot_pam("Seagrasses data - photosynthesis.csv", "fv_fm_day_time.png")
 
 
-    # pam boxplot
-    create_boxplot("Seagrasses data - photosynthesis.csv", r"Plots/fv_fm_day_time.png", "tank", "Fv/Fm", "tank",
-                   "Fv/Fm by temperature\nDay time", "Temperature", "Fv/Fm")
-    # rhizome boxplot
-    create_boxplot("Seagrasses data - rhizome.csv", r"Plots/rhizome_length.png", "Tank", "Rhizome Length (cm)", "Tank",
-                   "Rhizome growth by temperature", "Temperature", "Growth (cm)")
-    # Chlorophyll reading graph
-    # Chlorophyll A
-    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a.png", "Tank no", "Chl a mg/g FW",
-                   "Tank no", "Chlorophyll A by temperature", "Temperature", "Chl a mg/g FW")
-    # Chlorophyll B
-    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_b.png", "Tank no", "Chl b mg/g FW",
-                   "Tank no", "Chlorophyll B by temperature", "Temperature", "Chl b mg/g FW")
+    # # pam boxplot
+    # create_boxplot("Seagrasses data - photosynthesis.csv", r"Plots/fv_fm_day_time.png", "tank", "Fv/Fm", "tank",
+    #                "Fv/Fm by temperature\nDay time", "Temperature (Celsius)", "Fv/Fm")
+    # # rhizome boxplot
+    # create_boxplot("Seagrasses data - rhizome.csv", r"Plots/rhizome_length.png", "Tank", "Rhizome Length (cm)", "Tank",
+    #                "Rhizome growth by temperature", "Temperature (Celsius)", "Growth (cm)")
+    # # Chlorophyll reading graph
+    # # Chlorophyll A
+    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a.png", "Tank no", "Chl a mg/g FW",
+    #                "Tank no", "Chlorophyll A by temperature", "Temperature (Celsius)", "Chl a mg/g FW")
+    # # Chlorophyll B
+    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_b.png", "Tank no", "Chl b mg/g FW",
+    #                "Tank no", "Chlorophyll B by temperature", "Temperature (Celsius)", "Chl b mg/g FW")
+    #
+    # # Chlorophyll A+B
+    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a_b.png", "Tank no", "Chl a+b mg/g FW",
+    #                "Tank no", "Chlorophyll A+B by temperature", "Temperature (Celsius)", "Chl a+b mg/g FW")
+    #
+    # # Carotenoids
+    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Carotenoids.png", "Tank no",
+    #                "Carotenoids mg/g FW",
+    #                "Tank no", "Carotenoids by temperature", "Temperature (Celsius)", "Carotenoids mg/g FW")
 
-    # Chlorophyll A+B
-    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a_b.png", "Tank no", "Chl a+b mg/g FW",
-                   "Tank no", "Chlorophyll A+B by temperature", "Temperature", "Chl a+b mg/g FW")
+    # Leaf mass
+    # create_boxplot("Seagrasses data - leaf mass.csv", r"Plots/leaf_mass.png", "treatment [C]",
+    #                "mass [gr]",
+    #                "treatment [C]", "Leaf mass by temperature", "Temperature (Celsius)", "Leaf Mass (gr)")
 
-    # Carotenoids
-    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Carotenoids.png", "Tank no",
-                   "Carotenoids mg/g FW",
-                   "Tank no", "Carotenoids by temperature", "Temperature", "Carotenoids mg/g FW")
+    # Leaf internodes
+    create_boxplot("Seagrasses data - leaf mass.csv", r"Plots/leaf_internodes.png", "treatment [C]",
+                   "internodes",
+                   "treatment [C]", "Leaf number of internodes by temperature", "Temperature (Celsius)",
+                   "# Internodes")
