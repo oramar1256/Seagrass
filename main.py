@@ -38,13 +38,62 @@ def boxplot_leaves_size(df, plot_name):
     g.save(plot_name)
 
 
-def boxplot_rhizome_size(df):
-    rhizome_df = df[["index", "rhizome (cm)"]]
+def create_boxplot(path_name, save_name, x, y, color, title_input, xlab_input, ylab_input):
+    """
+    :param path_name: full path to file
+    :param save_name: png name of file to save
+    :param x: x var name
+    :param y: y var name
+    :param color: color var name
+    :param title_input: title name of plot
+    :param xlab_input: x label of plot
+    :param ylab_input: y label of plot
+    """
+    df = pd.read_csv(path_name)
+    df[f"{x}"] = df[f"{x}"].apply(str)
+    g = ggplot(df, aes(x=x, y=y, color=color)) + geom_boxplot() + \
+        ggtitle(title_input) + xlab(xlab_input) + ylab(ylab_input) + geom_jitter(height=0) + theme_bw()
+    g.save(save_name)
+
+
+def boxplot_pam(path_name, save_name):
+    """
+    :param path_name: name of the datatable
+    :param save_name: name of the plot
+    :return:
+    """
+    df = pd.read_csv(path_name)
+    df.tank = df.tank.apply(str)
+    g = ggplot(df, aes(x="tank", y="Fv/Fm", color='tank')) + geom_boxplot() + \
+        ggtitle("Fv/Fm by temperature\nDay time") + xlab("Temperature") + ylab("Fv/Fm") + theme_bw()
+    g.save(save_name)
 
 
 if __name__ == '__main__':
-    df = read_data("data_clear.csv")
-    boxplot_leaves_size(df, "leaves_total_mean.png")
+    # df = read_data("data_clear.csv")
+    # boxplot_leaves_size(df, "leaves_total_mean.png")
+    # boxplot_pam("Seagrasses data - photosynthesis.csv", "fv_fm_day_time.png")
 
 
+    # pam boxplot
+    create_boxplot("Seagrasses data - photosynthesis.csv", r"Plots/fv_fm_day_time.png", "tank", "Fv/Fm", "tank",
+                   "Fv/Fm by temperature\nDay time", "Temperature", "Fv/Fm")
+    # rhizome boxplot
+    create_boxplot("Seagrasses data - rhizome.csv", r"Plots/rhizome_length.png", "Tank", "Rhizome Length (cm)", "Tank",
+                   "Rhizome growth by temperature", "Temperature", "Growth (cm)")
+    # Chlorophyll reading graph
+    # Chlorophyll A
+    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a.png", "Tank no", "Chl a mg/g FW",
+                   "Tank no", "Chlorophyll A by temperature", "Temperature", "Chl a mg/g FW")
+    # Chlorophyll B
+    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_b.png", "Tank no", "Chl b mg/g FW",
+                   "Tank no", "Chlorophyll B by temperature", "Temperature", "Chl b mg/g FW")
 
+    # Chlorophyll A+B
+    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a_b.png", "Tank no", "Chl a+b mg/g FW",
+                   "Tank no", "Chlorophyll A+B by temperature", "Temperature", "Chl a+b mg/g FW")
+
+    # Carotenoids
+    create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Carotenoids.png", "Tank no",
+                   "Carotenoids mg/g FW",
+                   "Tank no", "Carotenoids by temperature", "Temperature", "Carotenoids mg/g FW")
