@@ -44,53 +44,53 @@ def create_colplot(path_name, save_name, x, y, color, title_input, xlab_input, y
 
 if __name__ == '__main__':
     # # pam boxplot
-    # create_boxplot("Seagrasses data - photosynthesis.csv", r"Plots/fv_fm_day_time.png", "tank", "Fv/Fm", "tank",
+    # create_boxplot(r"Data/Seagrasses data - photosynthesis.csv", r"Plots/fv_fm_day_time.png", "tank", "Fv/Fm", "tank",
     #                "Fv/Fm by temperature\nDay time", "Temperature (Celsius)", "Fv/Fm")
 
     # rhizome boxplot
-    create_boxplot("Seagrasses data - rhizome.csv", r"Plots/rhizome_elongation.png", "Tank", "average length per day",
+    create_boxplot(r"Data/Seagrasses data - rhizome.csv", r"Plots/rhizome_elongation.png", "Tank", "average length per day",
                    "Tank", "Rhizome average elongation by temperature\n10 days period", "Temperature (Celsius)",
                    "Rhizome average daily elongation (cm)")
 
     # # Chlorophyll reading graph
     # # Chlorophyll A
-    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a.png", "Tank no",
+    # create_boxplot(r"Data/Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a.png", "Tank no",
     #                "Chl a mg/g FW",
     #                "Tank no", "Chlorophyll A by temperature", "Temperature (Celsius)", "Chl a mg/g FW")
 
     # # Chlorophyll B
-    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_b.png", "Tank no",
+    # create_boxplot(r"Data/Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_b.png", "Tank no",
     #                "Chl b mg/g FW",
     #                "Tank no", "Chlorophyll B by temperature", "Temperature (Celsius)", "Chl b mg/g FW")
 
     # # Chlorophyll A+B
-    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a_b.png", "Tank no",
+    # create_boxplot(r"Data/Chlorophyll readings excel sheet from hung.csv", r"Plots/Chlorophyll_a_b.png", "Tank no",
     #                "Chl a+b mg/g FW",
     #                "Tank no", "Chlorophyll A+B by temperature", "Temperature (Celsius)", "Chl a+b mg/g FW")
 
     # # Carotenoids
-    # create_boxplot("Chlorophyll readings excel sheet from hung.csv", r"Plots/Carotenoids.png", "Tank no",
+    # create_boxplot(r"Data/Chlorophyll readings excel sheet from hung.csv", r"Plots/Carotenoids.png", "Tank no",
     #                "Carotenoids mg/g FW",
     #                "Tank no", "Carotenoids by temperature", "Temperature (Celsius)", "Carotenoids mg/g FW")
 
     # Leaf mass
-    create_boxplot("Seagrasses data - leaf mass.csv", r"Plots/leaf_mass.png", "treatment [C]",
+    create_boxplot(r"Data/Seagrasses data - leaf mass.csv", r"Plots/leaf_mass.png", "treatment [C]",
                    "average mass per day [gr]", "treatment [C]",
                    "Leaves average mass accumulation by temperature\n10 days period", "Temperature (Celsius)",
                    "Leaf average daily added mass (gr)")
 
     # # Leaf internodes
-    # create_boxplot("Seagrasses data - leaf mass.csv", r"Plots/leaf_internodes.png", "treatment [C]",
+    # create_boxplot(r"Data/Seagrasses data - leaf mass.csv", r"Plots/leaf_internodes.png", "treatment [C]",
     #                "internodes",
     #                "treatment [C]", "Leaf number of internodes by temperature", "Temperature (Celsius)",
     #                "# Internodes")
 
     # # Protein content
-    # create_colplot("Seagrasses data - protein content.csv", r"Plots/protein_concentration.png", "treatment",
+    # create_colplot(r"Data/Seagrasses data - protein content.csv", r"Plots/protein_concentration.png", "treatment",
     #                "concentartion [mg/ml]",
     #                "treatment", "Protein content by temperature", "Temperature (Celsius)",
     #                "concentration (mg/ml)")
     #
     # # night Fv/Fm
-    # create_boxplot("Seagrasses data - Night Fv_Fm.csv", r"Plots/fv_fm_night_time.png", "Tank", "Fv/Fm", "Tank",
+    # create_boxplot(r"Data/Seagrasses data - Night Fv_Fm.csv", r"Plots/fv_fm_night_time.png", "Tank", "Fv/Fm", "Tank",
     #                "Fv/Fm by temperature\nNight time", "Temperature (Celsius)", "Fv/Fm")
